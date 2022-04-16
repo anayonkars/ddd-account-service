@@ -1,0 +1,43 @@
+package com.ddd_bootcamp.threetier.controller;
+
+import com.ddd_bootcamp.domain.Account;
+import com.ddd_bootcamp.domain.Address;
+import com.ddd_bootcamp.threetier.applicationservice.AccountAppService;
+import com.ddd_bootcamp.threetier.controller.resource.AccountResource;
+import com.ddd_bootcamp.threetier.controller.viewModel.AccountRequest;
+import com.ddd_bootcamp.threetier.controller.viewModel.AddressRequest;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.UUID;
+
+@RestController
+public class AccountController {
+
+    private final AccountAppService accountAppService;
+
+    public AccountController(AccountAppService accountAppService) {
+        this.accountAppService = accountAppService;
+    }
+
+    @PostMapping("/accounts")
+    public AccountResource create(@RequestBody AccountRequest request) {
+        System.out.println("request = " + request);
+
+        Account account = accountAppService.createAccount(
+                new Account(new Address(request.getAddressRequest().getCity())));
+
+        return AccountResource.from(account);
+    }
+
+    @PutMapping("/accounts/{accountId}/address")
+    public AccountResource createAccount(@RequestBody AddressRequest request, @PathVariable String accountId) {
+        System.out.println("request = " + request);
+        System.out.println("PathVariable = " + accountId);
+
+        Account account = accountAppService.updateAddress(UUID.fromString(accountId), new Address(request.getCity()));
+
+        return AccountResource.from(account);
+    }
+
+
+}
