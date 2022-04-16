@@ -2,6 +2,9 @@ package com.ddd_bootcamp.application;
 
 import com.ddd_bootcamp.domain.Account;
 import com.ddd_bootcamp.domain.Address;
+import com.ddd_bootcamp.domain.CustomerId;
+
+import java.util.UUID;
 
 /**
  *
@@ -20,7 +23,7 @@ import com.ddd_bootcamp.domain.Address;
 public class Application {
     public static void main(String[] args) {
         Address address = new Address("Pune");
-        Account account = new Account(address);
+        Account account = new Account(address, new CustomerId(UUID.randomUUID()));
 
         System.out.println("---------------------------------------------------------");
         System.out.println("Before Address Change = " + account);

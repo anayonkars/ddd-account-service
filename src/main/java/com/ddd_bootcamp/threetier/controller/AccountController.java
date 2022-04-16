@@ -2,6 +2,7 @@ package com.ddd_bootcamp.threetier.controller;
 
 import com.ddd_bootcamp.domain.Account;
 import com.ddd_bootcamp.domain.Address;
+import com.ddd_bootcamp.domain.CustomerId;
 import com.ddd_bootcamp.threetier.applicationservice.AccountAppService;
 import com.ddd_bootcamp.threetier.controller.resource.AccountResource;
 import com.ddd_bootcamp.threetier.controller.viewModel.AccountRequest;
@@ -19,18 +20,19 @@ public class AccountController {
         this.accountAppService = accountAppService;
     }
 
-    @PostMapping("/accounts")
-    public AccountResource create(@RequestBody AccountRequest request) {
+    @PostMapping("/accounts/{customerId}")
+    public AccountResource create(@RequestBody AccountRequest request, @PathVariable String customerId) {
         System.out.println("request = " + request);
 
         Account account = accountAppService.createAccount(
-                new Account(new Address(request.getAddressRequest().getCity())));
+                new Account(new Address(request.getAddressRequest().getCity()),
+                        new CustomerId(UUID.fromString(customerId))));
 
         return AccountResource.from(account);
     }
 
     @PutMapping("/accounts/{accountId}/address")
-    public AccountResource createAccount(@RequestBody AddressRequest request, @PathVariable String accountId) {
+    public AccountResource updateAddress(@RequestBody AddressRequest request, @PathVariable String accountId) {
         System.out.println("request = " + request);
         System.out.println("PathVariable = " + accountId);
 
