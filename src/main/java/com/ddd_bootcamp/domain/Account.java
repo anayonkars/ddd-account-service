@@ -31,6 +31,14 @@ public class Account {
         return customerId;
     }
 
+    public String getCustomerIdAsString() {
+        return customerId.getCustomerId().toString();
+    }
+
+    public String getAccountIdAsString() {
+        return  accountId.getAccountIdUUID().toString();
+    }
+
     @Override
     public String toString() {
         return "Account{" +
@@ -39,4 +47,7 @@ public class Account {
                 ", address=" + address +
                 '}';
     }
+
+
+
 }
