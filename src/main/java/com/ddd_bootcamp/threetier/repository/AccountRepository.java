@@ -17,7 +17,7 @@ public class AccountRepository {
 
     public Account save(Account account) {
         System.out.println("in Repository account = " + account);
-        accountMap.put(account.getAccountId(), account);
+        accountMap.put(account.getAccountId().getAccountIdUUID(), account);
         return account;
     }
 

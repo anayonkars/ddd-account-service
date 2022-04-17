@@ -6,11 +6,11 @@ import java.util.UUID;
 public class Account {
 
     private final CustomerId customerId;
-    private UUID accountId;
+    private AccountId accountId;
     private Address address;
 
     public Account(Address address, CustomerId customerId) {
-        this.accountId = UUID.randomUUID();
+        this.accountId = new AccountId(UUID.randomUUID());
         this.address = address;
         this.customerId = customerId;
     }
@@ -19,7 +19,7 @@ public class Account {
         this.address = address;
     }
 
-    public UUID getAccountId() {
+    public AccountId getAccountId() {
         return accountId;
     }
 

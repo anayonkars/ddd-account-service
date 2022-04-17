@@ -15,7 +15,7 @@ public class AccountResource {
 
     public static AccountResource from(Account account) {
         AccountResource accountResource = new AccountResource();
-        accountResource.setAccountId(account.getAccountId());
+        accountResource.setAccountId(account.getAccountId().getAccountIdUUID());
 
         accountResource.setAddressData(AddressData.from(account.getAddress()));
         return accountResource;
