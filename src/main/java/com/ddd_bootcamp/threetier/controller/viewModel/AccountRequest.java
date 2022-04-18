@@ -4,6 +4,8 @@ public class AccountRequest {
 
     private AddressRequest addressRequest;
 
+    private String CustomerId;
+
     public AccountRequest() {
     }
 
@@ -15,8 +17,19 @@ public class AccountRequest {
         this.addressRequest = addressRequest;
     }
 
+    public String getCustomerId() {
+        return CustomerId;
+    }
+
+    public void setCustomerId(String customerId) {
+        CustomerId = customerId;
+    }
+
     @Override
     public String toString() {
-        return "AccountRequest{}";
+        return "AccountRequest{" +
+                "addressRequest=" + addressRequest +
+                ", CustomerId='" + CustomerId + '\'' +
+                '}';
     }
 }

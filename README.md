@@ -1,12 +1,14 @@
 #run main class using following command on terminal
 gradle run
 
-curl --location --request POST 'http://localhost:8082/accounts/9e023622-76e0-4b79-85bc-c9931567f621' \
+
+curl --location --request POST 'http://localhost:8082/accounts/' \
 --header 'Content-Type: application/json' \
 --data-raw '{
 "addressRequest": {
 "city": "pune"
-}
+},
+"customerId": "4347654d-8442-433c-8b90-876d9cecad9e"
 }'
 
 
