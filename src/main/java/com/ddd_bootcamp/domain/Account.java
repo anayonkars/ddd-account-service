@@ -3,7 +3,7 @@ package com.ddd_bootcamp.domain;
 import java.util.UUID;
 
 //Account Aggregate
-public class Account {
+public class Account implements Aggregate {
 
     private final CustomerId customerId;
     private AccountId accountId;
@@ -36,7 +36,7 @@ public class Account {
     }
 
     public String getAccountIdAsString() {
-        return  accountId.getAccountIdUUID().toString();
+        return accountId.getAccountIdUUID().toString();
     }
 
     @Override
@@ -47,7 +47,6 @@ public class Account {
                 ", address=" + address +
                 '}';
     }
-
 
 
 }
