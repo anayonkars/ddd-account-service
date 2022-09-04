@@ -19,6 +19,9 @@ public class Account implements Aggregate {
         this.address = address;
     }
 
+
+    //CustomerAddressUpdationFailed(customerId)
+
     public AccountId getAccountId() {
         return accountId;
     }

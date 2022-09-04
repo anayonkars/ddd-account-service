@@ -41,5 +41,12 @@ public class AccountController {
         return AccountResource.from(account);
     }
 
+    @PostMapping ("/x")
+    public AccountResource doSomething() {
+        accountAppService.sendEventToKafka();
+        return null;
+    }
+
+
 
 }

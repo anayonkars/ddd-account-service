@@ -9,6 +9,8 @@ public class CustomerAddressUpdatedEvent implements DomainEvent {
     private UUID customerId;
     private Address address;
 
+    public CustomerAddressUpdatedEvent() {
+    }
 
     public CustomerAddressUpdatedEvent(UUID customerId, Address address) {
         this.customerId = customerId;

@@ -3,6 +3,8 @@ package com.ddd_bootcamp.domain;
 public class Address implements ValueObject<Address> {
     private String city;
 
+    public Address() {}
+
     public Address(String city) {
         this.city = city;
     }
